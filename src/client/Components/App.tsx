@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import "./scss/app";
+import "../scss/app.scss";
 
 export default class App extends React.Component<IAppProps, IAppState> {
   constructor(props: IAppProps) {
