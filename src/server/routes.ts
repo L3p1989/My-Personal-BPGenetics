@@ -4,10 +4,6 @@ import DB from "./db";
 
 const router = express.Router();
 
-router.get("/api/hello", (req, res, next) => {
-  res.json("World");
-});
-
 router.get("/api/morphs", async (req, res) => {
   try {
     let geneCombos = await DB.geneCombos.all();
