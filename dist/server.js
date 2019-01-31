@@ -86,18 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/serve-favicon/index.js":
-/*!*********************************************!*\
-  !*** ./node_modules/serve-favicon/index.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("/*!\n * serve-favicon\n * Copyright(c) 2010 Sencha Inc.\n * Copyright(c) 2011 TJ Holowaychuk\n * Copyright(c) 2014-2017 Douglas Christopher Wilson\n * MIT Licensed\n */\n\n\n\n/**\n * Module dependencies.\n * @private\n */\n\nvar Buffer = __webpack_require__(/*! safe-buffer */ \"safe-buffer\").Buffer\nvar etag = __webpack_require__(/*! etag */ \"etag\")\nvar fresh = __webpack_require__(/*! fresh */ \"fresh\")\nvar fs = __webpack_require__(/*! fs */ \"fs\")\nvar ms = __webpack_require__(/*! ms */ \"ms\")\nvar parseUrl = __webpack_require__(/*! parseurl */ \"parseurl\")\nvar path = __webpack_require__(/*! path */ \"path\")\nvar resolve = path.resolve\n\n/**\n * Module exports.\n * @public\n */\n\nmodule.exports = favicon\n\n/**\n * Module variables.\n * @private\n */\n\nvar ONE_YEAR_MS = 60 * 60 * 24 * 365 * 1000 // 1 year\n\n/**\n * Serves the favicon located by the given `path`.\n *\n * @public\n * @param {String|Buffer} path\n * @param {Object} [options]\n * @return {Function} middleware\n */\n\nfunction favicon (path, options) {\n  var opts = options || {}\n\n  var icon // favicon cache\n  var maxAge = calcMaxAge(opts.maxAge)\n\n  if (!path) {\n    throw new TypeError('path to favicon.ico is required')\n  }\n\n  if (Buffer.isBuffer(path)) {\n    icon = createIcon(Buffer.from(path), maxAge)\n  } else if (typeof path === 'string') {\n    path = resolveSync(path)\n  } else {\n    throw new TypeError('path to favicon.ico must be string or buffer')\n  }\n\n  return function favicon (req, res, next) {\n    if (getPathname(req) !== '/favicon.ico') {\n      next()\n      return\n    }\n\n    if (req.method !== 'GET' && req.method !== 'HEAD') {\n      res.statusCode = req.method === 'OPTIONS' ? 200 : 405\n      res.setHeader('Allow', 'GET, HEAD, OPTIONS')\n      res.setHeader('Content-Length', '0')\n      res.end()\n      return\n    }\n\n    if (icon) {\n      send(req, res, icon)\n      return\n    }\n\n    fs.readFile(path, function (err, buf) {\n      if (err) return next(err)\n      icon = createIcon(buf, maxAge)\n      send(req, res, icon)\n    })\n  }\n}\n\n/**\n * Calculate the max-age from a configured value.\n *\n * @private\n * @param {string|number} val\n * @return {number}\n */\n\nfunction calcMaxAge (val) {\n  var num = typeof val === 'string'\n    ? ms(val)\n    : val\n\n  return num != null\n    ? Math.min(Math.max(0, num), ONE_YEAR_MS)\n    : ONE_YEAR_MS\n}\n\n/**\n * Create icon data from Buffer and max-age.\n *\n * @private\n * @param {Buffer} buf\n * @param {number} maxAge\n * @return {object}\n */\n\nfunction createIcon (buf, maxAge) {\n  return {\n    body: buf,\n    headers: {\n      'Cache-Control': 'public, max-age=' + Math.floor(maxAge / 1000),\n      'ETag': etag(buf)\n    }\n  }\n}\n\n/**\n * Create EISDIR error.\n *\n * @private\n * @param {string} path\n * @return {Error}\n */\n\nfunction createIsDirError (path) {\n  var error = new Error('EISDIR, illegal operation on directory \\'' + path + '\\'')\n  error.code = 'EISDIR'\n  error.errno = 28\n  error.path = path\n  error.syscall = 'open'\n  return error\n}\n\n/**\n * Get the request pathname.\n *\n * @param {object} req\n * @return {string}\n */\n\nfunction getPathname (req) {\n  try {\n    return parseUrl(req).pathname\n  } catch (e) {\n    return undefined\n  }\n}\n\n/**\n * Determine if the cached representation is fresh.\n *\n * @param {object} req\n * @param {object} res\n * @return {boolean}\n * @private\n */\n\nfunction isFresh (req, res) {\n  return fresh(req.headers, {\n    'etag': res.getHeader('ETag'),\n    'last-modified': res.getHeader('Last-Modified')\n  })\n}\n\n/**\n * Resolve the path to icon.\n *\n * @param {string} iconPath\n * @private\n */\n\nfunction resolveSync (iconPath) {\n  var path = resolve(iconPath)\n  var stat = fs.statSync(path)\n\n  if (stat.isDirectory()) {\n    throw createIsDirError(path)\n  }\n\n  return path\n}\n\n/**\n * Send icon data in response to a request.\n *\n * @private\n * @param {IncomingMessage} req\n * @param {OutgoingMessage} res\n * @param {object} icon\n */\n\nfunction send (req, res, icon) {\n  // Set headers\n  var headers = icon.headers\n  var keys = Object.keys(headers)\n  for (var i = 0; i < keys.length; i++) {\n    var key = keys[i]\n    res.setHeader(key, headers[key])\n  }\n\n  // Validate freshness\n  if (isFresh(req, res)) {\n    res.statusCode = 304\n    res.end()\n    return\n  }\n\n  // Send icon\n  res.statusCode = 200\n  res.setHeader('Content-Length', icon.body.length)\n  res.setHeader('Content-Type', 'image/x-icon')\n  res.end(icon.body)\n}\n\n\n//# sourceURL=webpack:///./node_modules/serve-favicon/index.js?");
-
-/***/ }),
-
 /***/ "./src/server/config/index.ts":
 /*!************************************!*\
   !*** ./src/server/config/index.ts ***!
@@ -178,18 +166,7 @@ eval("\r\nvar __awaiter = (this && this.__awaiter) || function (thisArg, _argume
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar path = __webpack_require__(/*! path */ \"path\");\r\nvar express = __webpack_require__(/*! express */ \"express\");\r\nvar routes_1 = __webpack_require__(/*! ./routes */ \"./src/server/routes.ts\");\r\nvar favIcon = __webpack_require__(/*! serve-favicon */ \"./node_modules/serve-favicon/index.js\");\r\nvar app = express();\r\napp.use(favIcon(path.join(__dirname, \"../public/favicon.ico\")));\r\nvar p = path.join(__dirname, \"../public\");\r\nconsole.log(p);\r\napp.use(express.static(p));\r\napp.use(express.json());\r\napp.use(routes_1.default);\r\nvar port = process.env.PORT || 3000;\r\napp.listen(port, function () {\r\n    console.log(\"Server listening on port: \" + port);\r\n});\r\n\n\n//# sourceURL=webpack:///./src/server/server.ts?");
-
-/***/ }),
-
-/***/ "etag":
-/*!***********************!*\
-  !*** external "etag" ***!
-  \***********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = require(\"etag\");\n\n//# sourceURL=webpack:///external_%22etag%22?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar path = __webpack_require__(/*! path */ \"path\");\r\nvar express = __webpack_require__(/*! express */ \"express\");\r\nvar routes_1 = __webpack_require__(/*! ./routes */ \"./src/server/routes.ts\");\r\nvar favIcon = __webpack_require__(/*! serve-favicon */ \"serve-favicon\");\r\nvar app = express();\r\napp.use(favIcon(path.join(__dirname, \"../public/favicon.ico\")));\r\nvar p = path.join(__dirname, \"../public\");\r\nconsole.log(p);\r\napp.use(express.static(p));\r\napp.use(express.json());\r\napp.use(routes_1.default);\r\nvar port = process.env.PORT || 3000;\r\napp.listen(port, function () {\r\n    console.log(\"Server listening on port: \" + port);\r\n});\r\n\n\n//# sourceURL=webpack:///./src/server/server.ts?");
 
 /***/ }),
 
@@ -204,39 +181,6 @@ eval("module.exports = require(\"express\");\n\n//# sourceURL=webpack:///externa
 
 /***/ }),
 
-/***/ "fresh":
-/*!************************!*\
-  !*** external "fresh" ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = require(\"fresh\");\n\n//# sourceURL=webpack:///external_%22fresh%22?");
-
-/***/ }),
-
-/***/ "fs":
-/*!*********************!*\
-  !*** external "fs" ***!
-  \*********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = require(\"fs\");\n\n//# sourceURL=webpack:///external_%22fs%22?");
-
-/***/ }),
-
-/***/ "ms":
-/*!*********************!*\
-  !*** external "ms" ***!
-  \*********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = require(\"ms\");\n\n//# sourceURL=webpack:///external_%22ms%22?");
-
-/***/ }),
-
 /***/ "mysql":
 /*!************************!*\
   !*** external "mysql" ***!
@@ -245,17 +189,6 @@ eval("module.exports = require(\"ms\");\n\n//# sourceURL=webpack:///external_%22
 /***/ (function(module, exports) {
 
 eval("module.exports = require(\"mysql\");\n\n//# sourceURL=webpack:///external_%22mysql%22?");
-
-/***/ }),
-
-/***/ "parseurl":
-/*!***************************!*\
-  !*** external "parseurl" ***!
-  \***************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = require(\"parseurl\");\n\n//# sourceURL=webpack:///external_%22parseurl%22?");
 
 /***/ }),
 
@@ -270,14 +203,14 @@ eval("module.exports = require(\"path\");\n\n//# sourceURL=webpack:///external_%
 
 /***/ }),
 
-/***/ "safe-buffer":
-/*!******************************!*\
-  !*** external "safe-buffer" ***!
-  \******************************/
+/***/ "serve-favicon":
+/*!********************************!*\
+  !*** external "serve-favicon" ***!
+  \********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = require(\"safe-buffer\");\n\n//# sourceURL=webpack:///external_%22safe-buffer%22?");
+eval("module.exports = require(\"serve-favicon\");\n\n//# sourceURL=webpack:///external_%22serve-favicon%22?");
 
 /***/ })
 
