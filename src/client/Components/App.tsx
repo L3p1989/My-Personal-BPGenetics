@@ -1,4 +1,5 @@
 import * as React from "react";
+import NavBar from "./NavBar";
 
 import "../scss/app.scss";
 
@@ -17,24 +18,27 @@ export default class App extends React.Component<IAppProps, IAppState> {
 
   render() {
     return (
-      <main className="container">
-        <h1 className="covalence-blue">My BP Genetics!</h1>
-        <ul className="list-group">
-          {this.state.geneCombos.map(geneCombo => {
-            return (
-              <>
-                <li className="list-group-item">
-                  {geneCombo.Name}
-                  <div>
-                    <p>{geneCombo.Description}</p>
-                    <img src={`${geneCombo.URL}`} alt="" />
-                  </div>
-                </li>
-              </>
-            );
-          })}
-        </ul>
-      </main>
+      <>
+        <NavBar />
+        <main className="container">
+          <h1 className="covalence-blue">My BP Genetics!</h1>
+          <ul className="list-group">
+            {this.state.geneCombos.map(geneCombo => {
+              return (
+                <>
+                  <li className="list-group-item">
+                    {geneCombo.Name}
+                    <div>
+                      <p>{geneCombo.Description}</p>
+                      <img className="s-img" src={`${geneCombo.URL}`} alt="" />
+                    </div>
+                  </li>
+                </>
+              );
+            })}
+          </ul>
+        </main>
+      </>
     );
   }
 }
