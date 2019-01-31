@@ -4,6 +4,17 @@
   color: #0091ea;
 }
 
+.morphs-container {
+  text-align: center;
+  max-width: 100%;
+}
+
+.morph-card {
+  position: inherit;
+  display: inline-flex;
+  width: 45%;
+}
+
 .morphs-btn {
   position: absolute;
   right: 0%;
@@ -40,8 +51,8 @@
 }
 
 .s-img {
-  height: 20%;
-  width: 20%;
+  height: 15%;
+  width: 60%;
 }
 
 .navbar {
