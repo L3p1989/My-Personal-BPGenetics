@@ -62,3 +62,35 @@ BlogTags (
 3. Create a component to add a new Blog post.
 
 The all Blogs component should display previews of the blog posts that a user can click on, which would navigate to the single Blog component that would display all the information of the Blog post. Don't forget to use your blog tags at least on the single Blog component!
+
+# My Ball Python Genetics
+
+## Setup
+
+```
+genetypes (
+    ID
+    Name
+    Description
+    _created
+)
+
+basicgenetics (
+    ID
+    Name
+    GeneType[connected to genetypes]
+    _created
+)
+
+genecombos (
+    Name
+    Description
+    Gene1[connected to basicgenetics]
+    Gene2[connected to basicgenetics]
+    Gene3[connected to basicgenetics]
+    Gene4[connected to basicgenetics]
+    Gene5[connected to basicgenetics]
+    Gene6[connected to basicgenetics]
+    URL
+)
+```
