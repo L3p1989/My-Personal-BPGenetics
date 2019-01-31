@@ -5,7 +5,7 @@ import * as favIcon from "serve-favicon";
 
 const app = express();
 
-app.use(favIcon(path.join(__dirname, "../public", "favicon.ico")));
+app.use(favIcon(path.join(__dirname, "../public/favicon.ico")));
 
 let p = path.join(__dirname, "../public");
 console.log(p);
