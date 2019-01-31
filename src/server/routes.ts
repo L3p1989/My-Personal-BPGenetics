@@ -28,4 +28,44 @@ router.get("/api/morphs/:Name", async (req, res) => {
   }
 });
 
+router.get("/api/genetypes", async (req, res) => {
+  try {
+    let geneTypes = await DB.geneTypes.all();
+    res.json(geneTypes);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+router.get("/api/genetypes/:ID", async (req, res) => {
+  try {
+    let geneTypes = await DB.geneTypes.one(req.params.ID);
+    res.json(geneTypes);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+router.get("/api/basicmorphs", async (req, res) => {
+  try {
+    let basicGenetics = await DB.basicGenetics.all();
+    res.json(basicGenetics);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+router.get("/api/basicmorphs/:ID", async (req, res) => {
+  try {
+    let basicGenetics = await DB.basicGenetics.one(req.params.ID);
+    res.json(basicGenetics);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(e);
+  }
+});
+
 export default router;
