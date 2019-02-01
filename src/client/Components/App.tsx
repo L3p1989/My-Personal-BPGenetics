@@ -2,11 +2,11 @@ import * as React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MorphCards from "./MorphCards";
 import NavBar from "./NavBar";
-
 import "../scss/app.scss";
 import HomePage from "./HomePage";
 import GenePage from "./GenePage";
 import BasicsPage from "./BasicsPage";
+import MorphPage from "./MorphPage";
 
 export default class App extends React.Component<IAppProps, IAppState> {
   constructor(props: IAppProps) {
@@ -26,7 +26,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
               <Route exact path="/genetypes" component={GenePage} />
               <Route exact path="/basicgenes" component={BasicsPage} />
               <Route exact path="/morphs" component={MorphCards} />
-              <Route exact path="/morphs/:Name" />
+              <Route path="/morphs/:name" component={MorphPage} />
             </Switch>
           </>
         </Router>
