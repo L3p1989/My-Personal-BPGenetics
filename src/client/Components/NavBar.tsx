@@ -5,7 +5,9 @@ class NavBar extends Component {
   render() {
     return (
       <div className="navbar text-white">
-        <button className="btn-secondary gene-btn">GeneTypes</button>
+        <Link to="/genetypes" className="btn-secondary gene-btn">
+          GeneTypes
+        </Link>
         <Link to="/morphs" className="btn-secondary morphs-btn">
           Morphs
         </Link>
