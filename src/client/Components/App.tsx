@@ -4,6 +4,7 @@ import MorphCards from "./MorphCards";
 import NavBar from "./NavBar";
 
 import "../scss/app.scss";
+import HomePage from "./HomePage";
 
 export default class App extends React.Component<IAppProps, IAppState> {
   constructor(props: IAppProps) {
@@ -20,6 +21,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
             <NavBar />
             <Switch>
               <Route exact path="/morphs" component={MorphCards} />
+              <Route exact path="/" component={HomePage} />
             </Switch>
           </>
         </Router>
