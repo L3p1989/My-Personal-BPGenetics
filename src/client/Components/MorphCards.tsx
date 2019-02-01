@@ -29,7 +29,11 @@ export default class MorphCards extends React.Component<
                 <div className="card text-center m-2 rounded morph-card">
                   <div className="card-body">
                     <img className="s-img" src={geneCombo.URL} />
-                    <p className="card-title">{geneCombo.Name}</p>
+                    <p className="card-title">
+                      <button className="btn-primary rounded snek-btn">
+                        {geneCombo.Name}
+                      </button>
+                    </p>
                   </div>
                 </div>
               </>
