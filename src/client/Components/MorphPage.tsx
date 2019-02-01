@@ -36,12 +36,34 @@ export default class MorphPage extends React.Component<
                     <u className="bold">Description:</u> {snek.Description}
                   </p>
                 )}
-                <p>1st Gene: "{snek.Gene1}"</p>
-                {snek.Gene2 !== null && <p>2nd Gene: "{snek.Gene2}"</p>}
-                {snek.Gene3 !== null && <p>3rd Gene: "{snek.Gene3}"</p>}
-                {snek.Gene4 !== null && <p>4th Gene: "{snek.Gene4}"</p>}
-                {snek.Gene5 !== null && <p>5th Gene: "{snek.Gene5}"</p>}
-                {snek.Gene6 !== null && <p>6th Gene: "{snek.Gene6}"</p>}
+                <p>
+                  {snek.GeneType1}: "{snek.Gene1}"
+                </p>
+                {snek.Gene2 !== null && (
+                  <p>
+                    {snek.GeneType2}: "{snek.Gene2}"
+                  </p>
+                )}
+                {snek.Gene3 !== null && (
+                  <p>
+                    {snek.GeneType3}: "{snek.Gene3}"
+                  </p>
+                )}
+                {snek.Gene4 !== null && (
+                  <p>
+                    {snek.GeneType4}: "{snek.Gene4}"
+                  </p>
+                )}
+                {snek.Gene5 !== null && (
+                  <p>
+                    {snek.GeneType5}: "{snek.Gene5}"
+                  </p>
+                )}
+                {snek.Gene6 !== null && (
+                  <p>
+                    {snek.GeneType6}: "{snek.Gene6}"
+                  </p>
+                )}
               </>
             );
           })}
@@ -57,11 +79,17 @@ interface IMorphState {
   snake: Array<{
     Name: string;
     Description: string;
+    GeneType1: string;
     Gene1: string;
+    GeneType2: string;
     Gene2: string;
+    GeneType3: string;
     Gene3: string;
+    GeneType4: string;
     Gene4: string;
+    GeneType5: string;
     Gene5: string;
+    GeneType6: string;
     Gene6: string;
     URL: string;
   }>;
