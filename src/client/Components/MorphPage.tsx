@@ -30,7 +30,7 @@ export default class MorphPage extends React.Component<
             return (
               <>
                 <h1 className="covalence-blue">{snek.Name}</h1>
-                <img className="snake-pic" src={snek.URL} />
+                <img className="snake-pic rounded" src={snek.URL} />
                 {snek.Description !== null && (
                   <p>
                     <u className="bold">Description:</u> {snek.Description}
