@@ -13,6 +13,13 @@
   position: inherit;
   display: inline-flex;
   width: 45%;
+  border: none;
+}
+
+.snek-btn {
+  background-color: white;
+  border: none;
+  color: black;
 }
 
 .morphs-btn {
@@ -42,12 +49,22 @@
   top: 0%;
 }
 
-.navbar-icon {
+.home-btn {
   height: 100%;
   width: 25%;
   position: absolute;
   top: 0%;
   left: 0%;
+  background: #0091ea;
+  border: none;
+}
+
+.navbar-icon {
+  position: inherit;
+  top: inherit;
+  left: inherit;
+  height: inherit;
+  width: inherit;
 }
 
 .s-img {
