@@ -27,8 +27,8 @@ export default class MorphPage extends React.Component<
           {this.state.snake.map(snek => {
             return (
               <>
-                <h1>{snek.Name}</h1>
-                <img src={snek.URL} />
+                <h1 className="covalence-blue">{snek.Name}</h1>
+                <img className="snake-pic" src={snek.URL} />
                 {snek.Description !== null && (
                   <p>
                     <u className="bold">Description:</u> {snek.Description}
