@@ -4,6 +4,11 @@
   color: #0091ea;
 }
 
+body {
+  color: white;
+  background: black;
+}
+
 .bold {
   font-weight: bold;
   text-decoration: none;
@@ -31,20 +36,32 @@
 .morph-card {
   position: inherit;
   display: inline-flex;
-  width: 45%;
+  width: 25%;
   border: none;
+  color: white;
+  background: black;
 }
 
 .snek-btn {
-  background-color: white;
+  background-color: black;
   border: none;
-  color: black;
+  color: white;
 }
 
 .morphs-btn {
   position: absolute;
   right: 0%;
   bottom: 2%;
+  color: white;
+  background: #0091ea;
+  border: none;
+}
+
+.snake-pic {
+  width: 50%;
+}
+
+.add-snek {
   color: white;
   background: #0091ea;
   border: none;
@@ -88,8 +105,8 @@
 }
 
 .s-img {
-  height: 15%;
-  width: 60%;
+  height: 20%;
+  width: 100%;
 }
 
 .navbar {
