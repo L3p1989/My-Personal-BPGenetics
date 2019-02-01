@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
+import AddForm from "./AddForm";
 
 export default class MorphCards extends React.Component<
   IMorphsProps,
@@ -22,6 +23,7 @@ export default class MorphCards extends React.Component<
       <>
         <div className="container morphs-container">
           <button className="add-snek btn-secondary">Add Morph</button>
+          <AddForm />
           <h1 className="covalence-blue">Morph Genetics</h1>
           {this.state.geneCombos.map(geneCombo => {
             return (
