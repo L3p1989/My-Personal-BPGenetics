@@ -34,7 +34,9 @@ export default class HomePage extends React.Component<
         </p>
         <p className="disclaimer">
           all material for this lab was taken from{" "}
-          <a href="http://www.worldofballpythons.com">World of Ball Pythons</a>
+          <a target="_blank" href="http://www.worldofballpythons.com">
+            World of Ball Pythons
+          </a>
         </p>
       </div>
     );
