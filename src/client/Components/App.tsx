@@ -5,6 +5,7 @@ import NavBar from "./NavBar";
 
 import "../scss/app.scss";
 import HomePage from "./HomePage";
+import GenePage from "./GenePage";
 
 export default class App extends React.Component<IAppProps, IAppState> {
   constructor(props: IAppProps) {
@@ -20,8 +21,11 @@ export default class App extends React.Component<IAppProps, IAppState> {
           <>
             <NavBar />
             <Switch>
-              <Route exact path="/morphs" component={MorphCards} />
               <Route exact path="/" component={HomePage} />
+              <Route exact path="/genetypes" component={GenePage} />
+              <Route exact path="/basicgenes" />
+              <Route exact path="/morphs" component={MorphCards} />
+              <Route exact path="/morphs/:Name" />
             </Switch>
           </>
         </Router>
