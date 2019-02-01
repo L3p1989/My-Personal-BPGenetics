@@ -11,7 +11,9 @@ class NavBar extends Component {
         <Link to="/morphs" className="btn-secondary morphs-btn">
           Morphs
         </Link>
-        <button className="btn-secondary basics-btn">Basics</button>
+        <Link to="/basicgenes" className="btn-secondary basics-btn">
+          Basics
+        </Link>
         <Link to="/" className="home-btn">
           <img
             className="rounded navbar-icon"
