@@ -1,11 +1,14 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 class NavBar extends Component {
   render() {
     return (
       <div className="navbar text-white">
         <button className="btn-secondary gene-btn">GeneTypes</button>
-        <button className="btn-secondary morphs-btn">Morphs</button>
+        <Link to="/morphs" className="btn-secondary morphs-btn">
+          Morphs
+        </Link>
         <button className="btn-secondary basics-btn">Basics</button>
         <button className="home-btn">
           <img
