@@ -1,7 +1,5 @@
 import React from "react";
 
-import "../scss/app.scss";
-
 export default class MorphCards extends React.Component<
   IMorphProps,
   IMorphState
