@@ -32,6 +32,10 @@ export default class HomePage extends React.Component<
           This will show you all the basic morphs plus whatever combinations
           they can make into designer morphs
         </p>
+        <p className="disclaimer">
+          all material for this lab was taken from{" "}
+          <a href="http://www.worldofballpythons.com">World of Ball Pythons</a>
+        </p>
       </div>
     );
   }
