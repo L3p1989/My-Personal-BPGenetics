@@ -1,10 +1,10 @@
 import React from "react";
 
 export default class MorphCards extends React.Component<
-  IMorphProps,
-  IMorphState
+  IMorphsProps,
+  IMorphsState
 > {
-  constructor(props: IMorphProps) {
+  constructor(props: IMorphsProps) {
     super(props);
 
     this.state = { geneCombos: [] };
@@ -43,9 +43,9 @@ export default class MorphCards extends React.Component<
   }
 }
 
-interface IMorphProps {}
+interface IMorphsProps {}
 
-interface IMorphState {
+interface IMorphsState {
   geneCombos: Array<{
     Name: string;
     URL: string;
