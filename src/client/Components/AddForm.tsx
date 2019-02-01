@@ -7,13 +7,13 @@ export default class AddForm extends React.Component<
   constructor(props: IAddFormProps) {
     super(props);
 
-    this.state = { geneCombos: [] };
+    this.state = { basicCombos: [] };
   }
 
   async componentWillMount() {
     let r = await fetch("/api/basicmorphs");
-    let geneCombos = await r.json();
-    this.setState({ geneCombos });
+    let basicCombos = await r.json();
+    this.setState({ basicCombos });
   }
 
   render() {
@@ -41,8 +41,12 @@ export default class AddForm extends React.Component<
               <label>Gene1</label>
               <select className="form-control">
                 <option selected>None</option>
-                {this.state.geneCombos.map(geneCombo => {
-                  return <option>{geneCombo.Name}</option>;
+                {this.state.basicCombos.map(basicCombo => {
+                  return (
+                    <option>
+                      {basicCombo.ID}: {basicCombo.Name}
+                    </option>
+                  );
                 })}
               </select>
             </div>
@@ -50,8 +54,12 @@ export default class AddForm extends React.Component<
               <label>Gene2</label>
               <select className="form-control">
                 <option selected>None</option>
-                {this.state.geneCombos.map(geneCombo => {
-                  return <option>{geneCombo.Name}</option>;
+                {this.state.basicCombos.map(basicCombo => {
+                  return (
+                    <option>
+                      {basicCombo.ID}: {basicCombo.Name}
+                    </option>
+                  );
                 })}
               </select>
             </div>
@@ -59,8 +67,12 @@ export default class AddForm extends React.Component<
               <label>Gene3</label>
               <select className="form-control">
                 <option selected>None</option>
-                {this.state.geneCombos.map(geneCombo => {
-                  return <option>{geneCombo.Name}</option>;
+                {this.state.basicCombos.map(basicCombo => {
+                  return (
+                    <option>
+                      {basicCombo.ID}: {basicCombo.Name}
+                    </option>
+                  );
                 })}
               </select>
             </div>
@@ -68,8 +80,12 @@ export default class AddForm extends React.Component<
               <label>Gene4</label>
               <select className="form-control">
                 <option selected>None</option>
-                {this.state.geneCombos.map(geneCombo => {
-                  return <option>{geneCombo.Name}</option>;
+                {this.state.basicCombos.map(basicCombo => {
+                  return (
+                    <option>
+                      {basicCombo.ID}: {basicCombo.Name}
+                    </option>
+                  );
                 })}
               </select>
             </div>
@@ -77,8 +93,12 @@ export default class AddForm extends React.Component<
               <label>Gene5</label>
               <select className="form-control">
                 <option selected>None</option>
-                {this.state.geneCombos.map(geneCombo => {
-                  return <option>{geneCombo.Name}</option>;
+                {this.state.basicCombos.map(basicCombo => {
+                  return (
+                    <option>
+                      {basicCombo.ID}: {basicCombo.Name}
+                    </option>
+                  );
                 })}
               </select>
             </div>
@@ -86,8 +106,12 @@ export default class AddForm extends React.Component<
               <label>Gene6</label>
               <select className="form-control">
                 <option selected>None</option>
-                {this.state.geneCombos.map(geneCombo => {
-                  return <option>{geneCombo.Name}</option>;
+                {this.state.basicCombos.map(basicCombo => {
+                  return (
+                    <option>
+                      {basicCombo.ID}: {basicCombo.Name}
+                    </option>
+                  );
                 })}
               </select>
             </div>
@@ -105,15 +129,8 @@ export default class AddForm extends React.Component<
 interface IAddFormProps {}
 
 interface IAddFormState {
-  geneCombos: Array<{
+  basicCombos: Array<{
     Name: string;
-    Description: string;
-    Gene1: string;
-    Gene2: string;
-    Gene3: string;
-    Gene4: string;
-    Gene5: string;
-    Gene6: string;
-    URL: string;
+    ID: number;
   }>;
 }
