@@ -24,6 +24,8 @@ export default class MorphPage extends React.Component<
     return (
       <>
         <div className="container morph-container">
+          <button className="edit-snek btn-secondary">Edit Morph</button>
+          <button className="delete-snek btn-secondary">Delete Morph</button>
           {this.state.snake.map(snek => {
             return (
               <>
