@@ -18,7 +18,6 @@ export default class MorphPage extends React.Component<
     let r = await fetch(`/api/morphs/${this.props.match.params.name}`);
     let snake = await r.json();
     this.setState({ snake });
-    console.log(snake);
   }
 
   render() {
@@ -30,7 +29,11 @@ export default class MorphPage extends React.Component<
               <>
                 <h1>{snek.Name}</h1>
                 <img src={snek.URL} />
-                {snek.Description !== null && <p>{snek.Description}</p>}
+                {snek.Description !== null && (
+                  <p>
+                    <u className="bold">Description:</u> {snek.Description}
+                  </p>
+                )}
                 <p>1st Gene: "{snek.Gene1}"</p>
                 {snek.Gene2 !== null && <p>2nd Gene: "{snek.Gene2}"</p>}
                 {snek.Gene3 !== null && <p>3rd Gene: "{snek.Gene3}"</p>}
