@@ -21,7 +21,7 @@ export default class MorphCards extends React.Component<
   render() {
     return (
       <>
-        <main className="container morphs-container">
+        <div className="container morphs-container">
           <h1 className="covalence-blue">Morph Genetics</h1>
           {this.state.geneCombos.map(geneCombo => {
             return (
@@ -39,7 +39,7 @@ export default class MorphCards extends React.Component<
               </>
             );
           })}
-        </main>
+        </div>
       </>
     );
   }
@@ -50,13 +50,6 @@ interface IMorphProps {}
 interface IMorphState {
   geneCombos: Array<{
     Name: string;
-    Description: string;
-    Gene1: number;
-    Gene2: number;
-    Gene3: number;
-    Gene4: number;
-    Gene5: number;
-    Gene6: number;
     URL: string;
   }>;
 }
