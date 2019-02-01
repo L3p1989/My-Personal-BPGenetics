@@ -21,6 +21,7 @@ export default class MorphCards extends React.Component<
     return (
       <>
         <div className="container morphs-container">
+          <button className="add-snek btn-secondary">Add Morph</button>
           <h1 className="covalence-blue">Morph Genetics</h1>
           {this.state.geneCombos.map(geneCombo => {
             return (
