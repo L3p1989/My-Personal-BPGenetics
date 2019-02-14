@@ -1,10 +1,6 @@
 import React from "react";
-import { RouteComponentProps } from "react-router-dom";
 
-export default class EditForm extends React.Component<
-  IEditFormProps,
-  IEditFormState
-> {
+class EditForm extends React.Component<IEditFormProps, IEditFormState> {
   constructor(props: IEditFormProps) {
     super(props);
     this.state = {
@@ -17,15 +13,20 @@ export default class EditForm extends React.Component<
     let r = await fetch("/api/basicmorphs");
     let basicCombos = await r.json();
     this.setState({ basicCombos });
-    let r2 = await fetch(`/api/morphs/${this.props.match.params.name}`);
+    let r2 = await fetch(`/api/morphs/${this.props.name}`);
     let snake = await r2.json();
     this.setState({ snake });
+  }
+
+  async handleUpdate() {
+    //logic to save an edit
+    // this.props.history.push('/morphs');
   }
 
   render() {
     return (
       <>
-        <div className="container rounded addform-container">
+        <div className="container rounded">
           <form>
             <div className="form-group">
               <label>Name</label>
@@ -49,7 +50,7 @@ export default class EditForm extends React.Component<
                 <option selected>None</option>
                 {this.state.basicCombos.map(basicCombo => {
                   return (
-                    <option>
+                    <option value={basicCombo.ID}>
                       {basicCombo.ID}: {basicCombo.Name}
                     </option>
                   );
@@ -132,7 +133,9 @@ export default class EditForm extends React.Component<
   }
 }
 
-interface IEditFormProps extends RouteComponentProps<{ name: string }> {}
+interface IEditFormProps {
+  name: string;
+}
 
 interface IEditFormState {
   basicCombos: Array<{
@@ -151,3 +154,5 @@ interface IEditFormState {
     URL: string;
   }>;
 }
+
+export default EditForm;

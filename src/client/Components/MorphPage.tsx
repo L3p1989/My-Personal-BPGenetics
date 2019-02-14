@@ -1,14 +1,13 @@
 import React from "react";
 import { RouteComponentProps } from "react-router-dom";
+import EditForm from "./EditForm";
 
 export default class MorphPage extends React.Component<
   IMorphProps,
   IMorphState
-> {
+  > {
   constructor(props: IMorphProps) {
     super(props);
-    this.props.match.params.name;
-
     this.state = {
       snake: []
     };
@@ -25,6 +24,7 @@ export default class MorphPage extends React.Component<
       <>
         <div className="container morph-container">
           <button className="edit-snek btn-secondary">Edit Morph</button>
+          <EditForm name={this.props.match.params.name} />
           <button className="delete-snek btn-secondary">Delete Morph</button>
           {this.state.snake.map(snek => {
             return (
@@ -73,7 +73,7 @@ export default class MorphPage extends React.Component<
   }
 }
 
-interface IMorphProps extends RouteComponentProps<{ name: string }> {}
+interface IMorphProps extends RouteComponentProps<{ name: string }> { }
 
 interface IMorphState {
   snake: Array<{
