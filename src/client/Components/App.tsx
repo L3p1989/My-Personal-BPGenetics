@@ -7,7 +7,6 @@ import HomePage from "./HomePage";
 import GenePage from "./GenePage";
 import BasicsPage from "./BasicsPage";
 import MorphPage from "./MorphPage";
-import EditForm from "./EditForm";
 
 export default class App extends React.Component<IAppProps, IAppState> {
   constructor(props: IAppProps) {

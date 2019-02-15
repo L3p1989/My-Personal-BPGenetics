@@ -1,12 +1,12 @@
 @import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 
-.covalence-blue {
-  color: #0091ea;
+* {
+  padding-left: 0;
+  margin: 0;
 }
 
-body {
-  color: white;
-  background: black;
+.covalence-blue {
+  color: #0091ea;
 }
 
 .addform-container {
