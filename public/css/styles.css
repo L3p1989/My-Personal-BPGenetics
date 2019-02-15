@@ -1,0 +1,5 @@
+body {
+  background: #eee;
+  background: url("../img/background.jpg") fixed;
+  color: #fff;
+}
