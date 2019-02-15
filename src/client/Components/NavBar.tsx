@@ -14,23 +14,29 @@ class NavBar extends Component {
           />
           Home
         </Link>
-        <div className="navbar text-white">
+        <div className="navbar">
           <div className="header">
             <nav>
               <ul>
                 <li>
                   <a>
-                    <Link to="/genetypes">GeneTypes</Link>
+                    <Link to="/genetypes" className="link">
+                      GeneTypes
+                    </Link>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <Link to="/basicgenes">Basics</Link>
+                    <Link to="/basicgenes" className="link">
+                      Basics
+                    </Link>
                   </a>
                 </li>
                 <li>
                   <a>
-                    <Link to="/morphs">Morphs</Link>
+                    <Link to="/morphs" className="link">
+                      Morphs
+                    </Link>
                   </a>
                 </li>
               </ul>
