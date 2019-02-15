@@ -6,6 +6,7 @@
 }
 
 .navbar {
+  color: #ffffff;
   width: 960px;
   height: 200px;
   position: relative;
@@ -22,7 +23,7 @@
 .logo {
   position: absolute;
   width: 200px;
-  height: 75px;
+  height: 100px;
   padding: 20px;
 }
 
@@ -33,9 +34,9 @@ nav > ul > li {
   line-height: 40px;
 }
 
-nav > ul > li > a {
+nav > ul > li > a > .link {
   text-decoration: none;
-  color: #fff;
+  color: #ffffff;
   font-size: 14px;
   font-weight: bold;
   padding: 0 20px 0 20px;
@@ -80,7 +81,7 @@ nav > ul {
   background: #0091ea;
   font-size: 16px;
   font-weight: bold;
-  color: #fff;
+  color: #ffffff;
   border: none;
   border-radius: 5px;
   position: absolute;
@@ -94,7 +95,7 @@ nav > ul {
   background: #0091ea;
   font-size: 16px;
   font-weight: bold;
-  color: #fff;
+  color: #ffffff;
   border: none;
   border-radius: 5px;
   position: absolute;
@@ -154,7 +155,8 @@ nav > ul {
   width: 25%;
   border: none;
   color: white;
-  background: black;
+  background: none;
+  text-decoration: none;
 }
 
 .snek-btn {
