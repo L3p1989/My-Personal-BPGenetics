@@ -22,7 +22,7 @@ export default class MorphCards extends React.Component<
     return (
       <>
         <div className="container morphs-container">
-          <button className="add-snek btn-secondary">Add Morph</button>
+          <button className="add-snek">Add Morph</button>
           <AddForm />
           <h1 className="covalence-blue">Morph Genetics</h1>
           {this.state.geneCombos.map(geneCombo => {
@@ -34,7 +34,7 @@ export default class MorphCards extends React.Component<
                     <p className="card-title">
                       <Link
                         to={`/morphs/${geneCombo.Name}`}
-                        className="btn-primary rounded snek-btn"
+                        className="snek-btn"
                       >
                         {geneCombo.Name}
                       </Link>
