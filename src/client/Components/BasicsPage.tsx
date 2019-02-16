@@ -20,7 +20,7 @@ export default class BasicsPage extends React.Component<
     return (
       <>
         <div className="container basics-container">
-          <h1 className="covalence-blue">Basic Genetic Traits</h1>
+          <h1>Basic Genetic Traits</h1>
           <table className="table">
             <thead>
               <tr>
