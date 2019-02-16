@@ -111,10 +111,6 @@ nav > ul {
   top: 100px;
 }
 
-.covalence-blue {
-  color: #0091ea;
-}
-
 .addform-container {
   display: none;
   position: absolute;
@@ -191,19 +187,30 @@ nav > ul {
 .s-img {
   height: 20%;
   width: 100%;
+  background: none;
 }
 
 .gene-container {
+  color: #ffffff;
   font-family: serif;
   text-align: center;
+  padding: 20px;
 }
 
 .basics-container {
+  color: #ffffff;
   font-family: serif;
   text-align: center;
+  padding: 20px;
 }
 
 .morph-container {
-  align-content: center;
+  color: #ffffff;
+  font-family: serif;
   text-align: center;
+  padding: 20px;
+}
+
+.table {
+  color: #ffffff;
 }
