@@ -13,10 +13,6 @@ export default class HomePage extends React.Component<
   render() {
     return (
       <div className="container hp-container">
-        <h1 className="covalence-blue">My Ball Python Genetics</h1>
-        <p>
-          Welcome to "<u className="page-title">My Ball Python Genetics</u>"!
-        </p>
         <h2>Gene Types</h2>
         <p>
           This section will show you what the Gene Types actually mean when they
