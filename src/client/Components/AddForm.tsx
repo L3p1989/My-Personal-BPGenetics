@@ -119,6 +119,8 @@ export default class AddForm extends React.Component<
               <label>Picture URL</label>
               <input type="text" className="form-control" />
             </div>
+            <button className="save-btn">Save</button>
+            <button className="cancel-btn">Cancel</button>
           </form>
         </div>
       </>
