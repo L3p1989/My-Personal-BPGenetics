@@ -9,7 +9,18 @@ export default class MorphCards extends React.Component<
   constructor(props: IMorphsProps) {
     super(props);
 
-    this.state = { geneCombos: [] };
+    this.state = {
+      geneCombos: [],
+      isShowing: false
+    };
+
+    this.toggleIsShowing = this.toggleIsShowing.bind(this);
+  }
+
+  toggleIsShowing() {
+    this.setState(prevState => ({
+      isShowing: !prevState.isShowing
+    }));
   }
 
   async componentWillMount() {
@@ -22,8 +33,15 @@ export default class MorphCards extends React.Component<
     return (
       <>
         <div className="container morphs-container">
-          <button className="add-snek">Add Morph</button>
-          <AddForm />
+          <button className="add-snek" onClick={this.toggleIsShowing}>
+            Add Morph
+          </button>
+          <div
+            style={{ display: this.state.isShowing ? "inherit" : "none" }}
+            className="container rounded addform-container"
+          >
+            <AddForm />
+          </div>
           <h1 className="text-white">Morph Genetics</h1>
           {this.state.geneCombos.map(geneCombo => {
             return (
@@ -57,4 +75,5 @@ interface IMorphsState {
     Name: string;
     URL: string;
   }>;
+  isShowing: boolean;
 }
