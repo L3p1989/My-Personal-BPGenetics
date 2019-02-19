@@ -124,6 +124,15 @@ nav > ul {
   right: 0;
 }
 
+.edit-container {
+  display: none;
+  position: absolute;
+  background-color: black;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
+
 .bold {
   font-weight: bold;
   text-decoration: none;
@@ -171,21 +180,41 @@ nav > ul {
 }
 
 .add-snek {
-  color: white;
+  width: 130px;
+  height: 40px;
+  padding: 5px;
   background: #0091ea;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
   border: none;
+  border-radius: 5px;
 }
 
-.edit-snek {
-  color: white;
+.edit-btn {
+  width: 130px;
+  height: 40px;
+  padding: 5px;
   background: #0091ea;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
   border: none;
+  border-radius: 5px;
+  margin: 2.5px;
 }
 
-.delete-snek {
-  color: white;
+.delete-btn {
+  width: 130px;
+  height: 40px;
+  padding: 5px;
   background: #0091ea;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
   border: none;
+  border-radius: 5px;
+  margin: 2.5px;
 }
 
 .s-img {
