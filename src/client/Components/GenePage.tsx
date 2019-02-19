@@ -17,7 +17,9 @@ export default class GenePage extends React.Component<IGeneProps, IGeneState> {
     return (
       <>
         <div className="container gene-container">
-          <h1>Genetics Types</h1>
+          <div style={{ margin: "30px" }}>
+            <h1>Genetics Types</h1>
+          </div>
           {this.state.geneTypes.map(geneType => {
             return (
               <>
