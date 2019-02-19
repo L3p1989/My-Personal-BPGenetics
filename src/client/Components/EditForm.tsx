@@ -20,6 +20,13 @@ class EditForm extends React.Component<IEditFormProps, IEditFormState> {
 
   async handleUpdate() {
     //logic to save an edit
+    //await fetch('/api/morphs', {
+    //method: 'PUT',
+    //headers: {
+    //"Content-type": "application/json"
+    //},
+    //body: JSON.stringify(body)
+    //});
     // this.props.history.push('/morphs');
   }
 
