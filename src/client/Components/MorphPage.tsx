@@ -9,8 +9,17 @@ export default class MorphPage extends React.Component<
   constructor(props: IMorphProps) {
     super(props);
     this.state = {
-      snake: []
+      snake: [],
+      isShowingDelete: false
     };
+
+    this.toggleDelete = this.toggleDelete.bind(this);
+  }
+
+  toggleDelete() {
+    this.setState(prevState => ({
+      isShowingDelete: !prevState.isShowingDelete
+    }));
   }
 
   async componentWillMount() {
@@ -98,4 +107,5 @@ interface IMorphState {
     Gene6: string;
     URL: string;
   }>;
+  isShowingDelete: boolean;
 }
