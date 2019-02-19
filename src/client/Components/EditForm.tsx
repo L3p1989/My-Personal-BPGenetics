@@ -32,7 +32,9 @@ class EditForm extends React.Component<IEditFormProps, IEditFormState> {
             <input
               type="text"
               className="form-control"
-              placeholder="Morph Name Here"
+              value={this.state.snake.map(snake => {
+                return snake.Name;
+              })}
             />
           </div>
           <div className="form-group">
@@ -40,90 +42,98 @@ class EditForm extends React.Component<IEditFormProps, IEditFormState> {
             <input
               type="text"
               className="form-control"
-              placeholder="Morph Description Here"
+              value={this.state.snake.map(snake => {
+                return snake.Description;
+              })}
             />
           </div>
           <div className="form-group">
             <label>Gene1</label>
             <select className="form-control">
-              <option selected>None</option>
+              <option selected>
+                {this.state.snake.map(snake => {
+                  return snake.Gene1;
+                })}
+              </option>
               {this.state.basicCombos.map(basicCombo => {
-                return (
-                  <option value={basicCombo.ID}>
-                    {basicCombo.ID}: {basicCombo.Name}
-                  </option>
-                );
+                return <option value={basicCombo.ID}>{basicCombo.Name}</option>;
               })}
             </select>
           </div>
           <div className="form-group">
             <label>Gene2</label>
             <select className="form-control">
-              <option selected>None</option>
+              <option selected>
+                {this.state.snake.map(snake => {
+                  return snake.Gene2;
+                })}
+              </option>
               {this.state.basicCombos.map(basicCombo => {
-                return (
-                  <option>
-                    {basicCombo.ID}: {basicCombo.Name}
-                  </option>
-                );
+                return <option>{basicCombo.Name}</option>;
               })}
             </select>
           </div>
           <div className="form-group">
             <label>Gene3</label>
             <select className="form-control">
-              <option selected>None</option>
+              <option selected>
+                {this.state.snake.map(snake => {
+                  return snake.Gene3;
+                })}
+              </option>
               {this.state.basicCombos.map(basicCombo => {
-                return (
-                  <option>
-                    {basicCombo.ID}: {basicCombo.Name}
-                  </option>
-                );
+                return <option>{basicCombo.Name}</option>;
               })}
             </select>
           </div>
           <div className="form-group">
             <label>Gene4</label>
             <select className="form-control">
-              <option selected>None</option>
+              <option selected>
+                {this.state.snake.map(snake => {
+                  return snake.Gene4;
+                })}
+              </option>
               {this.state.basicCombos.map(basicCombo => {
-                return (
-                  <option>
-                    {basicCombo.ID}: {basicCombo.Name}
-                  </option>
-                );
+                return <option>{basicCombo.Name}</option>;
               })}
             </select>
           </div>
           <div className="form-group">
             <label>Gene5</label>
             <select className="form-control">
-              <option selected>None</option>
+              <option selected>
+                {this.state.snake.map(snake => {
+                  return snake.Gene5;
+                })}
+              </option>
               {this.state.basicCombos.map(basicCombo => {
-                return (
-                  <option>
-                    {basicCombo.ID}: {basicCombo.Name}
-                  </option>
-                );
+                return <option>{basicCombo.Name}</option>;
               })}
             </select>
           </div>
           <div className="form-group">
             <label>Gene6</label>
             <select className="form-control">
-              <option selected>None</option>
+              <option selected>
+                {this.state.snake.map(snake => {
+                  return snake.Gene6;
+                })}
+              </option>
               {this.state.basicCombos.map(basicCombo => {
-                return (
-                  <option>
-                    {basicCombo.ID}: {basicCombo.Name}
-                  </option>
-                );
+                return <option>{basicCombo.Name}</option>;
               })}
             </select>
           </div>
           <div className="form-group">
             <label>Picture URL</label>
-            <input type="text" className="form-control" />
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.snake.map(snake => {
+                return snake.URL;
+              })}
+            />
           </div>
           <button className="save-btn">Save</button>
         </form>
