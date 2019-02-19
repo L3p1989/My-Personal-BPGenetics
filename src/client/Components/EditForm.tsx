@@ -26,7 +26,7 @@ class EditForm extends React.Component<IEditFormProps, IEditFormState> {
   render() {
     return (
       <>
-        <div className="container rounded">
+        <div className="edit-container rounded">
           <form>
             <div className="form-group">
               <label>Name</label>
