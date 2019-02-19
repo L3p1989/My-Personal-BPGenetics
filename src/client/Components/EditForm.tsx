@@ -23,7 +23,18 @@ class EditForm extends React.Component<IEditFormProps, IEditFormState> {
     // this.props.history.push('/morphs');
   }
 
+  renderSnekTest() {
+    return this.state.basicCombos.map(basicCombo => {
+      if (basicCombo.Name === this.props.name) {
+        return <option selected value={basicCombo.ID}>{basicCombo.Name}</option>;
+      } else {
+        return <option value={basicCombo.ID}>{basicCombo.Name}</option>;
+      }
+    })
+  }
+
   render() {
+
     return (
       <>
         <form>
@@ -50,14 +61,7 @@ class EditForm extends React.Component<IEditFormProps, IEditFormState> {
           <div className="form-group">
             <label>Gene1</label>
             <select className="form-control">
-              <option selected>
-                {this.state.snake.map(snake => {
-                  return snake.Gene1;
-                })}
-              </option>
-              {this.state.basicCombos.map(basicCombo => {
-                return <option value={basicCombo.ID}>{basicCombo.Name}</option>;
-              })}
+              {this.renderSnekTest()}
             </select>
           </div>
           <div className="form-group">
