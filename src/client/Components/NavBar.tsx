@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 class NavBar extends Component {
   render() {
     return (
-      <>
+      <div className="nav-container">
         <div className="bw-gradient" />
         <Link className="link" to="/">
           <img
@@ -12,7 +12,6 @@ class NavBar extends Component {
             src="https://cdn.discordapp.com/attachments/501423134335828000/545826863130345502/1080_namira.png"
             alt=""
           />
-          Home
         </Link>
         <div className="navbar">
           <div className="header">
@@ -46,7 +45,7 @@ class NavBar extends Component {
           </div>
           <h1 className="brand-quote">Ball Python Genetics</h1>
         </div>
-      </>
+      </div>
     );
   }
 }
