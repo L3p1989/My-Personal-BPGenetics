@@ -10,10 +10,19 @@ export default class MorphPage extends React.Component<
     super(props);
     this.state = {
       snake: [],
-      isShowingDelete: false
+      isShowingDelete: false,
+      isShowingEdit: false
     };
 
     this.toggleDelete = this.toggleDelete.bind(this);
+
+    this.toggleEdit = this.toggleEdit.bind(this);
+  }
+
+  toggleEdit() {
+    this.setState(prevState => ({
+      isShowingEdit: !prevState.isShowingEdit
+    }));
   }
 
   toggleDelete() {
@@ -32,13 +41,27 @@ export default class MorphPage extends React.Component<
     return (
       <>
         <div className="container morph-container">
-          <button className="edit-btn">Edit Morph</button>
-          <button className="delete-btn">Delete Morph</button>
-          <EditForm name={this.props.match.params.name} />
-          <div className="delete-confirm">
+          <button className="edit-btn" onClick={this.toggleEdit}>
+            Edit Morph
+          </button>
+          <button className="delete-btn" onClick={this.toggleDelete}>
+            Delete Morph
+          </button>
+          <div
+            className="edit-container rounded"
+            style={{ display: this.state.isShowingEdit ? "inherit" : "none" }}
+          >
+            <EditForm name={this.props.match.params.name} />
+          </div>
+          <div
+            style={{ display: this.state.isShowingDelete ? "inherit" : "none" }}
+            className="delete-confirm"
+          >
             <p>Are you sure you want to delete this morph?</p>
             <button className="save-btn">Yes</button>
-            <button className="cancel-btn">No</button>
+            <button className="cancel-btn" onClick={this.toggleDelete}>
+              No
+            </button>
           </div>
           {this.state.snake.map(snek => {
             return (
@@ -108,4 +131,5 @@ interface IMorphState {
     URL: string;
   }>;
   isShowingDelete: boolean;
+  isShowingEdit: boolean;
 }
