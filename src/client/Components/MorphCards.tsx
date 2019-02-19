@@ -33,16 +33,18 @@ export default class MorphCards extends React.Component<
     return (
       <>
         <div className="container morphs-container">
-          <button className="add-snek" onClick={this.toggleIsShowing}>
-            Add Morph
-          </button>
+          <h1 className="text-white">Morph Genetics</h1>
+          <div>
+            <button className="add-snek" onClick={this.toggleIsShowing}>
+              Add Morph
+            </button>
+          </div>
           <div
             style={{ display: this.state.isShowing ? "inherit" : "none" }}
             className="container rounded addform-container"
           >
             <AddForm />
           </div>
-          <h1 className="text-white">Morph Genetics</h1>
           {this.state.geneCombos.map(geneCombo => {
             return (
               <>
