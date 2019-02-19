@@ -1,7 +1,6 @@
 import React from "react";
 import { RouteComponentProps } from "react-router-dom";
 import EditForm from "./EditForm";
-import DeleteConf from "./DeleteConf";
 
 export default class MorphPage extends React.Component<
   IMorphProps,
@@ -27,7 +26,11 @@ export default class MorphPage extends React.Component<
           <button className="edit-btn">Edit Morph</button>
           <button className="delete-btn">Delete Morph</button>
           <EditForm name={this.props.match.params.name} />
-          <DeleteConf name={this.props.match.params.name} />
+          <div className="delete-confirm">
+            <p>Are you sure you want to delete this morph?</p>
+            <button className="save-btn">Yes</button>
+            <button className="cancel-btn">No</button>
+          </div>
           {this.state.snake.map(snek => {
             return (
               <>
